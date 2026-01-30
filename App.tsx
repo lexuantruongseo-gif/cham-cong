@@ -1,20 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import { db, DEFAULT_SETTINGS } from './database';
 import { User, Settings } from './types';
-
-// FIX: Import trực tiếp file PascalCase bằng đường dẫn tương đối
-import AdminPanel from './components/AdminPanel';
-import StaffPanel from './components/StaffPanel';
-
-import { 
-  UsersIcon, 
-  ShieldCheckIcon, 
-  EnvelopeIcon, 
-  LockClosedIcon, 
-  UserCircleIcon, 
-  KeyIcon 
-} from '@heroicons/react/24/solid';
+import AdminPanel from './components/admin-panel';
+import StaffPanel from './components/staff-panel';
+import { UsersIcon, ShieldCheckIcon, EnvelopeIcon, LockClosedIcon, UserCircleIcon, KeyIcon } from '@heroicons/react/24/solid';
 
 const App: React.FC = () => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
@@ -38,6 +27,7 @@ const App: React.FC = () => {
         try {
             const s = await db.getSettings();
             setSettings(s);
+            // Ensure users are loaded/seeded
             await db.getUsers(); 
         } catch (e) {
             console.error(e);
@@ -283,6 +273,13 @@ const App: React.FC = () => {
                     >
                         Quên mật khẩu?
                     </button>
+                </div>
+                
+                <div className="mt-8 pt-6 border-t border-gray-100 text-xs text-center text-gray-400">
+                    <p>Demo Accounts:</p>
+                    <p className="font-mono">admin@cafune.com / 123</p>
+                    <p className="font-mono">manager@cafune.com / 123</p>
+                    <p className="font-mono">nva@cafune.com / 123</p>
                 </div>
               </>
           ) : (
