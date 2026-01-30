@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafune PartTime Staff Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- SheetJS for Excel Export -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f3f4f6;
+      }
+
+      /* Custom Checkbox Styling */
+      input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: #f9fafb; /* Grayish-white (gray-50) */
+        margin: 0;
+        width: 1.25rem;
+        height: 1.25rem;
+        border: 2px solid #000000; /* Black border */
+        border-radius: 0.25rem;
+        display: grid;
+        place-content: center;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+      }
+
+      input[type="checkbox"]::before {
+        content: "";
+        width: 0.75rem;
+        height: 0.75rem;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        /* Custom black checkmark using clip-path */
+        background-color: #000000; /* Black tick */
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+      }
+
+      input[type="checkbox"]:checked::before {
+        transform: scale(1);
+      }
+
+      input[type="checkbox"]:focus {
+        outline: 2px solid rgba(0, 0, 0, 0.1);
+        outline-offset: 2px;
+      }
+
+      input[type="checkbox"]:hover {
+        background-color: #f3f4f6;
+      }
+
+      /* Ensure date icon visibility */
+      input[type="date"] {
+        color-scheme: light;
+      }
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+        filter: brightness(0);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "@heroicons/react/": "https://esm.sh/@heroicons/react@^2.2.0/",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "firebase/": "https://esm.sh/firebase@^12.8.0/",
+    "url": "https://esm.sh/url@^0.11.4",
+    "path": "https://esm.sh/path@^0.12.7"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root-parttime-app"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
